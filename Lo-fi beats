@@ -10,16 +10,57 @@
     <div class="app-container">
         <div class="player-container">
             <audio id="audio-player" controls>
-                <source src="nature-sounds.mp3" type="audio/mp3">
+                <source id="audio-source" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
         </div>
         <div class="controls-container">
+            <select id="playlist-select">
+                <option value="nature-sounds.mp3">Nature Sounds</option>
+                <option value="lo-fi-beats.mp3">Lo-fi Beats</option>
+                <!-- Add more options for additional tracks -->
+            </select>
             <button id="play-btn">Play</button>
             <button id="pause-btn">Pause</button>
+            <input id="volume-slider" type="range" min="0" max="1" step="0.1" value="1">
         </div>
     </div>
 
     <script src="app.js"></script>
 </body>
 </html>
+document.addEventListener("DOMContentLoaded", function () {
+    const audioPlayer = document.getElementById("audio-player");
+    const audioSource = document.getElementById("audio-source");
+    const playBtn = document.getElementById("play-btn");
+    const pauseBtn = document.getElementById("pause-btn");
+    const volumeSlider = document.getElementById("volume-slider");
+    const playlistSelect = document.getElementById("playlist-select");
+
+    const playlist = {
+        "nature-sounds.mp3": "Nature Sounds",
+        "lo-fi-beats.mp3": "Lo-fi Beats",
+        // Add more tracks as needed
+    };
+
+    // Set initial track
+    audioSource.src = playlist[playlistSelect.value];
+
+    // Event listeners
+    playBtn.addEventListener("click", function () {
+        audioPlayer.play();
+    });
+
+    pauseBtn.addEventListener("click", function () {
+        audioPlayer.pause();
+    });
+
+    volumeSlider.addEventListener("input", function () {
+        audioPlayer.volume = volumeSlider.value;
+    });
+
+    playlistSelect.addEventListener("change", function () {
+        audioSource.src = playlist[playlistSelect.value];
+        audioPlayer.load(); // Reload the audio element to change the track
+    });
+});
