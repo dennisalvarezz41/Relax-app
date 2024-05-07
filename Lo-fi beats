@@ -18,6 +18,10 @@
             <select id="playlist-select">
                 <option value="nature-sounds.mp3">Nature Sounds</option>
                 <option value="lo-fi-beats.mp3">Lo-fi Beats</option>
+                <option value="ambient1.mp3">Ambient 1</option>
+                <option value="ambient2.mp3">Ambient 2</option>
+                <option value="lofi-anime1.mp3">Lofi Anime 1</option>
+                <option value="lofi-anime2.mp3">Lofi Anime 2</option>
                 <!-- Add more options for additional tracks -->
             </select>
             <button id="play-btn">Play</button>
@@ -40,6 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const playlist = {
         "nature-sounds.mp3": "Nature Sounds",
         "lo-fi-beats.mp3": "Lo-fi Beats",
+        "ambient1.mp3": "Ambient 1",
+        "ambient2.mp3": "Ambient 2",
+        "lofi-anime1.mp3": "Lofi Anime 1",
+        "lofi-anime2.mp3": "Lofi Anime 2",
         // Add more tracks as needed
     };
 
